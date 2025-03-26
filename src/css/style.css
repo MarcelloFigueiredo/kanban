@@ -1,0 +1,237 @@
+/* Fonte Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Estilos globais */
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo da página */
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #6fa3ef, #a7d8ff); /* Gradiente mais suave e moderno */
+}
+
+/* Container principal do Kanban */
+.kanban {
+    display: flex;
+    gap: 20px;
+    padding: 24px;
+    width: 100%;
+    height: 90vh;
+    overflow-x: auto;
+}
+
+/* Colunas do Kanban */
+.kanban-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+    overflow-y: auto;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    min-width: 252px;
+    position: relative;
+    transition: background-color 0.3s ease; /* Transição suave de fundo */
+}
+
+/* Estilos da barra de status das colunas */
+.kanban-column[data-id="1"] {
+    border-left: 4px solid #ff6f61; /* Cor mais suave */
+}
+
+.kanban-column[data-id="2"] {
+    border-left: 4px solid #ffbb33; /* Cor mais suave */
+}
+
+.kanban-column[data-id="3"] {
+    border-left: 4px solid #44b3b4; /* Cor mais suave */
+}
+
+.kanban-column[data-id="4"] {
+    border-left: 4px solid #8f70e0; /* Cor mais suave */
+}
+
+.kanban-column[data-id="5"] {
+    border-left: 4px solid #58a55b; /* Cor mais suave */
+}
+
+/* Título da coluna e botões */
+.kanban-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.kanban-title h2 {
+    font-size: 20px;
+    color: #2d3e50;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.add-card {
+    color: #2d3e50;
+    font-size: 22px;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+}
+
+/* Cartões dentro da coluna */
+.kanban-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    height: 100%;
+    overflow-y: auto;
+}
+
+/* Cartão individual */
+.kanban-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 16px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    cursor: move;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efeito hover nos cartões */
+.kanban-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Badge de prioridade nos cartões */
+.badge {
+    color: #ffffff;
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.badge.high {
+    background-color: #ff6f61; /* Cor mais suave */
+}
+
+.badge.medium {
+    background-color: #ffbb33; /* Cor mais suave */
+}
+
+.badge.low {
+    background-color: #44b3b4; /* Cor mais suave */
+}
+
+/* Informações do cartão */
+.card-infos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-icons {
+    display: flex;
+    gap: 14px;
+}
+
+.card-icons i {
+    color: #a8a8aa;
+    font-size: 16px;
+}
+
+/* Estilo do usuário (avatar) */
+.user img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ffffff;
+}
+
+/* Efeitos de arrastar */
+.dragging {
+    opacity: 0.5;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo para as colunas quando o mouse está sobre elas */
+.cards-hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+}
+
+/* Customização da barra de rolagem */
+*::-webkit-scrollbar {
+    width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+    background-color: #f0f0f0;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #b5d6e6;
+    border-radius: 10px;
+}
+
+/* Estilos do formulário para adicionar nova tarefa */
+.new-task-form {
+    display: none; /* Inicialmente oculto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Fundo semi-transparente */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 100;
+}
+
+/* Inputs e botões do formulário */
+.new-task-form input,
+.new-task-form select,
+.new-task-form button {
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.new-task-form button {
+    cursor: pointer;
+    background-color: #58a55b; /* Cor de ação mais suave */
+    border: none;
+    color: white;
+    font-weight: 600;
+}
+
+#cancel-task {
+    background-color: #ff6f61; /* Cor de cancelamento */
+    color: white;
+}
+
+/* Efeito de hover nos botões */
+.new-task-form button:hover {
+    background-color: #4e9b4f; /* Cor de hover para o botão de salvar */
+}
+
+#cancel-task:hover {
+    background-color: #e44a44; /* Cor de hover para o botão de cancelar */
+}
