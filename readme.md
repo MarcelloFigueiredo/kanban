@@ -2,7 +2,7 @@
 
 ![Imagem de Capa do kanban](/src/img/capa.jpg)
 
-Este é um projeto de um quadro de tarefas Kanban desenvolvido com HTML, CSS e JavaScript. Este sistema permite com que o usuário possa organizar suas tarefas por nivél de atendimento sendo eles N1, N2 e N3. Além disso, esse projeto possui a funcionalidade de arrastar e soltar as tarefas, facilitando o gerenciamento de atividades.
+Este é um projeto de um quadro de tarefas Kanban desenvolvido com HTML, CSS e JavaScript. Este sistema permite com que o usuário possa organizar suas tarefas por nivél de atendimento sendo eles N1, N2 e N3. Além disso, esse projeto possui a funcionalidade de arrastar e soltar as tarefas, facilitando o gerenciamento de atividades e também permite criar novas tarefas, dando nome e definindo a prioridade dela(baixa, média e alta) ao clicar no icone +.
 
 ## 🚀 Tecnologias Utilizadas
 
